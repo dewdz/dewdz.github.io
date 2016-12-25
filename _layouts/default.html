@@ -34,7 +34,6 @@
         {% endif %}
 		<!--标题列表 -->
 		<ul>
-		
 		  {% for post in site.posts %}
 			<li>
 			  <a href="{{ post.url }}">{{ post.title }}</a>
@@ -52,15 +51,11 @@
         {% if site.github.is_project_page %}
         <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
         {% endif %}
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+        <p><small><i>Dewdz's blog.</i>&nbsp;|&nbsp;email:{{ site.email }}</small></p>
       </footer>
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
 
-	<script type="text/javascript">
-	console.log({{site.posts}});
-	console.log({{site}});
-	</script>
   {% if site.google_analytics %}
     <script type="text/javascript">
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
