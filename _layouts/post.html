@@ -29,9 +29,8 @@
 					{% endif %}
 					{% capture nextPostIndex %}{{ forloop.index | plus:1 }}{% endcapture %}
 				{% endif %}
-				<input id="forloop.index" value="{{ nextPostIndex }}"/>
-				<input value="{{ forloop.index == nextPostIndex }}"/>
-				{% if forloop.index == nextPostIndex %}
+				<input id="{{forloop.index}}" value="{{ nextPostIndex }}"/>
+				{% if forloop.index == 2 %}
 					<p><a href="{{ post.url }}">下一篇： {{ post.title }}</a></p>
 				{% endif %}
 				
