@@ -23,15 +23,15 @@
 			{% assign nextPostIndex = -1 %}
 			
 			{% for post in site.posts %}
-			<input id="" value="{{ nextPostIndex }}"/>
 				{% if post.title == page.title %}
 					{% if prevPostTitle != "" %}
 						<p><a href="{{ prevPostUrl }}">上一篇： {{ prevPostTitle }}</a></p>
 					{% endif %}
-					{% capture nextPostIndex %}{{ forloop.index0 | plus:1 }}{% endcapture %}
+					{% capture nextPostIndex %}{{ forloop.index | plus:1 }}{% endcapture %}
 				{% endif %}
-				<input value="{{ forloop.index0 }}"/>
-				{% if nextPostIndex == forloop.index0 %}
+				<input id="forloop.index" value="{{ nextPostIndex }}"/>
+				<input value="{{ forloop.index == nextPostIndex }}"/>
+				{% if forloop.index == nextPostIndex %}
 					<p><a href="{{ post.url }}">下一篇： {{ post.title }}</a></p>
 				{% endif %}
 				
