@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>{{ site.title | default: site.github.repository_name }}<!-- by {{ site.github.owner_name }}--></title>
+    <title>{{ site.title | default: site.github.repository_name }}</title>
 
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <meta name="viewport" content="width=device-width">
@@ -34,6 +34,7 @@
         {% endif %}
 		<!--标题列表 -->
 		<ul>
+		
 		  {% for post in site.posts %}
 			<li>
 			  <a href="{{ post.url }}">{{ post.title }}</a>
@@ -59,6 +60,8 @@
 
   {% if site.google_analytics %}
     <script type="text/javascript">
+	console.log({{site.posts}});
+	console.log({{site}});
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
       document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
     </script>
