@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: post
+excerpt: This's a template.
 ---
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
