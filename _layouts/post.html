@@ -22,9 +22,8 @@
       {{ content }}
 
       </section>
-      <footer>
-        <p><small><i>Dewdz's blog.</i>&nbsp;|&nbsp;{{ site.description | default: site.github.project_tagline }}&nbsp;|&nbsp;email：{{ site.email }}</small></p>
-      </footer>
+	  <div class="clear"></div>
+	  {% include footer.html param="post_footer" %}
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
 
