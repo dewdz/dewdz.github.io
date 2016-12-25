@@ -20,7 +20,7 @@
 		{% if site.posts.size > 1 %}
 			{% assign prevPostTitle = "" %}
 			{% assign prevPostUrl = "" %}
-			{% assign nextPostIndex = -1 %}
+			{% assign nextPostIndex = 0 %}
 			
 			{% for post in site.posts %}
 				{% if post.title == page.title %}
@@ -29,8 +29,7 @@
 					{% endif %}
 					{% capture nextPostIndex %}{{ forloop.index | plus:1 }}{% endcapture %}
 				{% endif %}
-				<input id="{{forloop.index}}" value="{{ nextPostIndex }}"/>
-				{% if forloop.index == nextPostIndex %}
+				{% if forloop.index | plus:0 == nextPostIndex %}
 					<p><a href="{{ post.url }}">下一篇： {{ post.title }}</a></p>
 				{% endif %}
 				
