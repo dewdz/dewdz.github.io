@@ -32,7 +32,6 @@
 				{% endif %}
 				
 				{% capture curIndex %}{{ forloop.index | plus:0 }}{% endcapture %}
-				<input id="{{curIndex}}" value="{{nextPostIndex}}"/>
 				{% if curIndex == nextPostIndex %}
 					<p><a href="{{ post.url }}">下一篇： {{ post.title }}</a></p>
 				{% endif %}

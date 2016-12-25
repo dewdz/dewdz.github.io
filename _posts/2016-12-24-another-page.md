@@ -1,5 +1,6 @@
 ---
 layout: post
+excerpt: A test page.
 ---
 
 ## Welcome to another page
