@@ -173,7 +173,7 @@ th { color: #444; }
 
 img { max-width: 100%; }
 
-header { width: 270px; float: left; position: fixed; -webkit-font-smoothing: subpixel-antialiased; }
+header { width: 270px; float: left; -webkit-font-smoothing: subpixel-antialiased; }
 
 header ul { list-style: none; height: 40px; padding: 0; background: #f4f4f4; border-radius: 5px; border: 1px solid #e0e0e0; width: 270px; }
 
@@ -201,7 +201,8 @@ small { font-size: 11px; }
 
 hr { border: 0; background: #e5e5e5; height: 1px; margin: 0 0 20px; }
 
-.footer { width: 270px; float: left; position: fixed; bottom: 50px; -webkit-font-smoothing: subpixel-antialiased; }
+.footer { width: 270px; float: left; margin: 0px auto; border-top: 1px solid #e5e5e5; bottom: 50px; -webkit-font-smoothing: subpixel-antialiased; }
+.footer p{ text-align: center; }
 .post_footer { width: 100%; float: left; text-align:center;}
 .post_footer a {color: #727272;}
 
