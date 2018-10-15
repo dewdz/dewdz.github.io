@@ -12,42 +12,52 @@
     <![endif]-->
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>{{ page.title }}</h1>
-        <p>{{ page.excerpt }}</p>
-		
-		{% if site.posts.size > 1 %}
-			{% assign prevPostTitle = "" %}
-			{% assign prevPostUrl = "" %}
-			{% assign nextPostIndex = -1 %}
-			{% assign curIndex = 0 %}
-			
-			{% for post in site.posts %}
-				{% if post.title == page.title %}
-					{% if prevPostTitle != "" %}
-						<p><a href="{{ prevPostUrl }}">上一篇： {{ prevPostTitle }}</a></p>
-					{% endif %}
-					{% capture nextPostIndex %}{{ forloop.index | plus:1 }}{% endcapture %}
-				{% endif %}
-				
-				{% capture curIndex %}{{ forloop.index | plus:0 }}{% endcapture %}
-				{% if curIndex == nextPostIndex %}
-					<p><a href="{{ post.url }}">下一篇： {{ post.title }}</a></p>
-				{% endif %}
-				
-				{% capture prevPostTitle %}{{ post.title }}{% endcapture %}
-				{% capture prevPostUrl %}{{ post.url }}{% endcapture %}
-			{% endfor %}
-		{% endif %}
-      </header>
-      <section>
+    <div>
+      <div class="topbar">
+        <div class="topbar-wrapper">
+          <span>您好！ {{ site.time }}</span>
+        </div>
+      </div>
 
-      {{ content }}
+      <div class="context-wrapper">
 
-      </section>
-	  <div class="clear"></div>
-	  {% include footer.html param="post_footer" %}
+        <header>
+          <h1>{{ page.title }}</h1>
+          <p>{{ page.excerpt }}</p>
+  		
+      		{% if site.posts.size > 1 %}
+      			{% assign prevPostTitle = "" %}
+      			{% assign prevPostUrl = "" %}
+      			{% assign nextPostIndex = -1 %}
+      			{% assign curIndex = 0 %}
+      			
+      			{% for post in site.posts %}
+      				{% if post.title == page.title %}
+      					{% if prevPostTitle != "" %}
+      						<p><a href="{{ prevPostUrl }}">上一篇： {{ prevPostTitle }}</a></p>
+      					{% endif %}
+      					{% capture nextPostIndex %}{{ forloop.index | plus:1 }}{% endcapture %}
+      				{% endif %}
+      				
+      				{% capture curIndex %}{{ forloop.index | plus:0 }}{% endcapture %}
+      				{% if curIndex == nextPostIndex %}
+      					<p><a href="{{ post.url }}">下一篇： {{ post.title }}</a></p>
+      				{% endif %}
+      				
+      				{% capture prevPostTitle %}{{ post.title }}{% endcapture %}
+      				{% capture prevPostUrl %}{{ post.url }}{% endcapture %}
+      			{% endfor %}
+      		{% endif %}
+        </header>
+        <section>
+
+        {{ content }}
+
+        </section>
+  	  <div class="clear"></div>
+    </div>
+
+	    {% include footer.html param="post_footer" %}
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
 
