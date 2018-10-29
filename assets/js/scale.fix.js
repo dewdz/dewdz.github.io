@@ -19,7 +19,7 @@ function gestureStart() {
   var int=setInterval(function(){
     var d=new Date();
     var t=d.toLocaleTimeString();
-    document.getElementById("welcom-date").value=t;
+    document.getElementById("welcom-date").innerHTML=t;
   },1000);
   
 })();
