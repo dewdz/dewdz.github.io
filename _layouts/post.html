@@ -15,7 +15,7 @@
     <div>
       <div class="topbar">
         <div class="topbar-wrapper">
-          <span>您好！ {{ site.time }}</span>
+          <span>您好！ <span id="welcom-date">{{ site.time }}</span></span>
         </div>
       </div>
 
@@ -69,7 +69,7 @@
     <script type="text/javascript">
       try {
         var pageTracker = _gat._getTracker("{{ site.google_analytics }}");
-      pageTracker._trackPageview();
+        pageTracker._trackPageview();
       } catch(err) {}
     </script>
   {% endif %}

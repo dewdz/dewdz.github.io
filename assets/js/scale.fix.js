@@ -15,3 +15,11 @@ function gestureStart() {
     }
   }
 }
+(function(){
+  var int=setInterval("clock()",1000);
+  function clock() {
+    var d=new Date();
+    var t=d.toLocaleTimeString();
+    document.getElementById("welcom-date").value=t;
+  }
+})();

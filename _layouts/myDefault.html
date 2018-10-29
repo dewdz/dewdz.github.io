@@ -15,7 +15,7 @@
     <div>
       <div class="topbar">
         <div class="topbar-wrapper">
-          <span>您好！ {{ site.time }}</span>
+          <span>您好！ <span id="welcom-date">{{ site.time }}</span></span>
         </div>
       </div>
 
@@ -63,7 +63,7 @@
         {% if site.github.is_project_page %}
           <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
         {% endif %}
-        <p><small><i>Dewdz's blog.</i>&nbsp;|&nbsp;Email：{{ site.email }}</small></p>
+        <p><small><i>Dewdz's blog.</i>&nbsp;|&nbsp;{{ site.email }}</small></p>
       </footer>
 
     </div>
