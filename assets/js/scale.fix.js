@@ -16,11 +16,10 @@ function gestureStart() {
   }
 }
 (function(){
-  function clock() {
+  var int=setInterval(function(){
     var d=new Date();
     var t=d.toLocaleTimeString();
     document.getElementById("welcom-date").value=t;
-  }
-  var int=setInterval("clock()",1000);
+  },1000);
   
 })();
