@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>{{ page.title | default: site.title }}</title>
 
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/post-style.css?v=' | append: site.github.build_revision | relative_url }}">
     <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -22,39 +22,38 @@
       <div class="context-wrapper">
 
         <header>
-          <h1>{{ page.title }}</h1>
-          <p>{{ page.excerpt }}</p>
-  		
-      		{% if site.posts.size > 1 %}
-      			{% assign prevPostTitle = "" %}
-      			{% assign prevPostUrl = "" %}
-      			{% assign nextPostIndex = -1 %}
-      			{% assign curIndex = 0 %}
-      			
-      			{% for post in site.posts %}
-      				{% if post.title == page.title %}
-      					{% if prevPostTitle != "" %}
-      						<p><a href="{{ prevPostUrl }}">上一篇： {{ prevPostTitle }}</a></p>
-      					{% endif %}
-      					{% capture nextPostIndex %}{{ forloop.index | plus:1 }}{% endcapture %}
-      				{% endif %}
-      				
-      				{% capture curIndex %}{{ forloop.index | plus:0 }}{% endcapture %}
-      				{% if curIndex == nextPostIndex %}
-      					<p><a href="{{ post.url }}">下一篇： {{ post.title }}</a></p>
-      				{% endif %}
-      				
-      				{% capture prevPostTitle %}{{ post.title }}{% endcapture %}
-      				{% capture prevPostUrl %}{{ post.url }}{% endcapture %}
-      			{% endfor %}
-      		{% endif %}
+            <h1>{{ page.title }}</h1>
+            <p><span>{{ page.date }}</span><span>分类：{{ page.categories }}</span></p>
         </header>
         <section>
-
         {{ content }}
-
         </section>
-  	  <div class="clear"></div>
+        <div class="adjoin-page">
+            {% if site.posts.size > 1 %}
+                {% assign prevPostTitle = "" %}
+                {% assign prevPostUrl = "" %}
+                {% assign nextPostIndex = -1 %}
+                {% assign curIndex = 0 %}
+
+                {% for post in site.posts %}
+                    {% if post.title == page.title %}
+                        {% if prevPostTitle != "" %}
+                            <p class="prev-page"><a href="{{ prevPostUrl }}">上一篇： {{ prevPostTitle }}</a></p>
+                        {% endif %}
+                        {% capture nextPostIndex %}{{ forloop.index | plus:1 }}{% endcapture %}
+                    {% endif %}
+
+                    {% capture curIndex %}{{ forloop.index | plus:0 }}{% endcapture %}
+                    {% if curIndex == nextPostIndex %}
+                        <p class="next-page"><a href="{{ post.url }}">下一篇： {{ post.title }}</a></p>
+                    {% endif %}
+
+                    {% capture prevPostTitle %}{{ post.title }}{% endcapture %}
+                    {% capture prevPostUrl %}{{ post.url }}{% endcapture %}
+                {% endfor %}
+            {% endif %}
+            <div clas="clear"></div>
+        </div>
     </div>
 
 	    {% include footer.html param="footer post_footer" %}
