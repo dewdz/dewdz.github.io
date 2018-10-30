@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>{{ site.title | default: site.github.repository_name }}</title>
+
+    <link rel="stylesheet" href="{{ '/assets/css/home-style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div>
+      <div class="topbar">
+        <div class="topbar-wrapper">
+          <span><a href="http://blog.dewdz.com">Dewdz's blog</a><span id="welcom-date">{{ site.time }}</span></span>
+        </div>
+      </div>
+
+      <div class="context-wrapper">
+        <header>
+          <h1>{{ site.title | default: site.github.repository_name }}</h1>
+          <p>{{ site.description | default: site.github.project_tagline }}</p>
+
+          <!--标题列表 -->
+          <div>
+            <p>最新文章</p>
+            <ul>
+              {% for post in site.posts %}
+                {% assign curIndex = 0 %}
+                {% capture curIndex %}{{ forloop.index | plus:0 }}{% endcapture %}
+                {% if curIndex < 10 %}
+                  <li>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </header>
+        <section>
+          {% if paginator.total_pages > 1 %}
+            <div class="pagination">
+              {% if paginator.previous_page %}
+                <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+              {% else %}
+                <span>&laquo; Prev</span>
+              {% endif %}
+
+              {% for page in (1..paginator.total_pages) %}
+                {% if page == paginator.page %}
+                  <em>{{ page }}</em>
+                {% elseif page == 1 %}
+                  <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+                {% else %}
+                  <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+                {% endif %}
+              {% endfor %}
+
+              {% if paginator.next_page %}
+                <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+              {% else %}
+                <span>Next &raquo;</span>
+              {% endif %}
+            </div>
+          {% endif %}
+        </section>
+
+        <div class="clear"></div>
+      </div>
+
+      <footer class="footer">
+        <p><small><i>Dewdz's blog.</i>&nbsp;|&nbsp;{{ site.email }}</small></p>
+      </footer>
+
+    </div>
+
+    <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
+
+    {% if site.google_analytics %}
+      <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      </script>
+      <script type="text/javascript">
+        try {
+          var pageTracker = _gat._getTracker("{{ site.google_analytics }}");
+          pageTracker._trackPageview();
+        } catch(err) {}
+      </script>
+    {% endif %}
+
+  </body>
+</html>

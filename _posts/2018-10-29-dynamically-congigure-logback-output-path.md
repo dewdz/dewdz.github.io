@@ -3,6 +3,7 @@ layout: post
 title: "logback动态定义日志输出路径"
 date: 2018-10-29 18:05:06
 categories: log
+tags: 系统日志 log logback 自定义 日志路径
 ---
 生产环境错综复杂，往往开发环境下一切正常，发布到生产环境却出现始料未及的问题，使用logback记录系统运行日志这一基础功能也不例外。这里就记录一次由于日志输出路径配置不当而引起的问题。 <!-- excerpt -->
 

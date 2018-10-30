@@ -4,3 +4,4 @@ excerpt_separator: '<!-- excerpt -->'
 blog_purport: 记录、总结、分享
 description: 记录、总结、分享。
 permalink: /:categories/:month:day:year/:title
+paginate: 2
