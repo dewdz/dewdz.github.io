@@ -1,118 +1,55 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>{{ site.title | default: site.github.repository_name }}</title>
+---
+layout: homePage
+title: Dewdz's blog
+---
 
-    <link rel="stylesheet" href="{{ '/assets/css/home-style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div>
-      <div class="topbar">
-        <div class="topbar-wrapper">
-          <span><a href="http://blog.dewdz.com">Dewdz's blog</a><span id="welcom-date">{{ site.time }}</span></span>
-        </div>
-      </div>
+{% for post in paginator.posts %}
+<h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+<p class="author">
+  <span class="date">{{ post.date }}</span>
+</p>
+<div class="content">
+  {{ post.content }}
+</div>
+{% endfor %}
 
-      <div class="context-wrapper">
-        <header>
-          <h1>{{ site.title | default: site.github.repository_name }}</h1>
-          <p>{{ site.description | default: site.github.project_tagline }}</p>
+<!-- 分页链接 -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+  <a href="/page{{ paginator.previous_page }}" class="previous">Previous</a>
+  {% else %}
+  <span class="previous">Previous</span>
+  {% endif %}
+  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+  <a href="/page{{ paginator.next_page }}" class="next">Next</a>
+  {% else %}
+  <span class="next ">Next</span>
+  {% endif %}
+</div>
 
-          <!--标题列表 -->
-          <div>
-            <p>最新文章</p>
-            <ul>
-              {% for post in site.posts limit:3 %}
-                <li>
-                  <a href="{{ post.url }}">{{ post.title }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-        </header>
-        <section>
-          {% for post in paginator.posts %}
-          <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-          <p class="author">
-            <span class="date">{{ post.date }}</span>
-          </p>
-          <div class="content">
-            {{ post.content }}
-          </div>
-          {% endfor %}
-
-          <!-- 分页链接 -->
-          <div class="pagination">
-            {% if paginator.previous_page %}
-            <a href="/page{{ paginator.previous_page }}" class="previous">Previous</a>
-            {% else %}
-            <span class="previous">Previous</span>
-            {% endif %}
-            <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-            {% if paginator.next_page %}
-            <a href="/page{{ paginator.next_page }}" class="next">Next</a>
-            {% else %}
-            <span class="next ">Next</span>
-            {% endif %}
-          </div>
-
-          <!--{% if paginator.total_pages > 1 %}-->
-            <div class="pagination">
-              {% if paginator.previous_page %}
-                <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-              {% else %}
-                <span>&laquo; Prev</span>
-              {% endif %}
-
-              {% for page in (1..paginator.total_pages) %}
-                {% if page == paginator.page %}
-                  <em>{{ page }}</em>
-                {% elsif page == 1 %}
-                  <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-                {% else %}
-                  <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-                {% endif %}
-              {% endfor %}
-
-              {% if paginator.next_page %}
-                <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-              {% else %}
-                <span>Next &raquo;</span>
-              {% endif %}
-            </div>
-          <!--{% endif %}-->
-        </section>
-
-        {{ content }}
-        <div class="clear"></div>
-      </div>
-
-      <footer class="footer">
-        <p><small><i>Dewdz's blog.</i>&nbsp;|&nbsp;{{ site.email }}</small></p>
-      </footer>
-
-    </div>
-
-    <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
-
-    {% if site.google_analytics %}
-      <script type="text/javascript">
-        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-      </script>
-      <script type="text/javascript">
-        try {
-          var pageTracker = _gat._getTracker("{{ site.google_analytics }}");
-          pageTracker._trackPageview();
-        } catch(err) {}
-      </script>
+<!--{% if paginator.total_pages > 1 %}-->
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+    {% else %}
+      <span>&laquo; Prev</span>
     {% endif %}
 
-  </body>
-</html>
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <em>{{ page }}</em>
+      {% elsif page == 1 %}
+        <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+      {% else %}
+        <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+      {% endif %}
+    {% endfor %}
+
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+    {% else %}
+      <span>Next &raquo;</span>
+    {% endif %}
+  </div>
+<!--{% endif %}-->
