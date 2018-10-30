@@ -133,11 +133,11 @@
 
 .clear{ height:0px;font-size:0;clear:both;}
 
+.margin-left-20{ margin-left: 20px; }
+
 body { background-color: #fff; margin: 0px; font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #727272; font-weight: 400; }
 
 h1, h2, h3, h4, h5, h6 { color: #222; margin: 0 0 20px; }
-
-p, ul, ol, table, pre, dl { margin: 0 0 20px; }
 
 h1, h2, h3 { line-height: 1.1; }
 
@@ -180,8 +180,6 @@ th { color: #444; }
 img { max-width: 100%; }
 
 header { -webkit-font-smoothing: subpixel-antialiased; border-bottom: 1px solid #aaa;}
-
-header p span{ margin-left: 20px; }
 
 header ul { list-style: none; height: 40px; padding: 0; background: #f4f4f4; border-radius: 5px; border: 1px solid #e0e0e0; width: 270px; }
 

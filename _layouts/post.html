@@ -23,7 +23,7 @@
 
         <header>
             <h1>{{ page.title }}</h1>
-            <p><span>{{ page.date }}</span><span>分类：{{ page.categories }}</span></p>
+            <p><span>{{ page.date }}</span><span class="margin-left-20">分类：{{ page.categories }}</span></p>
         </header>
         <section>
         {{ content }}
@@ -52,7 +52,7 @@
                     {% capture prevPostUrl %}{{ post.url }}{% endcapture %}
                 {% endfor %}
             {% endif %}
-            <div clas="clear"></div>
+            <div class="clear"></div>
         </div>
     </div>
 
