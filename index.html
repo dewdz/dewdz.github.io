@@ -9,7 +9,13 @@ title: Dewdz's blog
   <p class="post-info">
     <span>{{ post.date }}</span>
     <span class="margin-left-20">分类：{{ post.categories }}</span>
-    <span class="margin-left-20">标签：{{ post.tags }}</span>
+    {% if post.tags %}
+        <span class="margin-left-20">标签：
+            {% for tag in post.tags limit:3 %}
+                {{ tag | append:'&nbsp;' }}
+            {% endfor %}
+        </span>
+    {% endif %}
   </p>
 {% endfor %}
 

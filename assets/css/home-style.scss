@@ -131,6 +131,8 @@
 
 .highlight { background-color: #f8f8f8; }
 
+.margin-left-20{ margin-left: 20px; }
+
 .clear{ height:0px;font-size:0;clear:both;}
 
 body { background-color: #fff; margin: 0px; font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #727272; font-weight: 400; }
@@ -189,7 +191,7 @@ header div p { padding: 5px; background-color: #e0e0e0; margin-bottom: 0px; }
 
 header ul { list-style: none; padding: 0; border: 1px solid #e0e0e0; width: 270px; border-top: none; box-sizing: border-box;}
 
-header ul a { line-height: 1; font-size: 11px; color: #999; display: block; padding-top: 6px; }
+header ul a { line-height: 1; font-size: 11px; color: #999; display: block; padding: 6px; }
 
 header ul a span{ margin-left: 3px; }
 
@@ -198,8 +200,6 @@ header ul a:hover { color: #999; }
 header ul a:active { background-color: #f0f0f0; }
 
 strong { color: #222; font-weight: 700; }
-
-header ul li + li + li { border-right: none; width: 89px; }
 
 header ul a strong { font-size: 14px; display: block; color: #222; }
 
@@ -211,7 +211,7 @@ section h1 a { color: #3d3d3d;}
 
 section p { margin: 5px 0px; font-size: 14px; line-height: 22px; white-space: normal; color: #999; }
 
-section p.post-info { border-bottom: 1px solid #e0e0e0; padding: 5px 0px; margin: 0px; }
+section p.post-info { border-bottom: 1px solid #e0e0e0; padding: 5px 0px; margin: 0px; color: #6b6b6b;}
 
 small { font-size: 11px; }
 
@@ -222,7 +222,7 @@ hr { border: 0; background: #e5e5e5; height: 1px; margin: 0 0 20px; }
 .post_footer { width: 100%; float: left; text-align:center;}
 .post_footer a {color: #727272;}
 
-.pagination { text-align: center; }
+.pagination { text-align: center; margin-top: 15px;}
 
 .pagination span, .pagination a, .pagination em { margin: 0px 2px; }
 
