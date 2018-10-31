@@ -5,7 +5,7 @@ title: Dewdz's blog
 
 {% for post in paginator.posts %}
   <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-  <p>{{ post.excerpt }}</p>
+  <p><a href="{{ post.url }}">{{ post.excerpt }}</a></p>
   <p class="post-info">
     <span>{{ post.date }}</span>
     <span class="margin-left-20">分类：{{ post.categories }}</span>
