@@ -217,7 +217,7 @@ section p a:hover { text-decoration-line: underline; }
 
 section p.post-info { border-bottom: 1px solid #e0e0e0; padding: 5px 0px; margin: 0px; color: #6b6b6b;}
 
-section:last-child p.post-info { border-bottom: 0px; }
+section p.post-info:last-child { border-bottom: 0px; }
 
 small { font-size: 11px; }
 
