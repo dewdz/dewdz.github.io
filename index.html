@@ -11,7 +11,7 @@ title: Dewdz's blog
     <span class="margin-left-20">分类：{{ post.categories }}</span>
     {% if post.tags %}
         <span class="margin-left-20">标签：
-            {% for tag in post.tags limit:3 %}
+            {% for tag in post.tags %}
                 {{ tag | append:'&nbsp;' }}
             {% endfor %}
         </span>
