@@ -39,9 +39,9 @@
             <p>分类列表</p>
             <ul>
               {% for category in site.categories %}
-              <li class="category_list_item">
-                <a href="">{{ category | first }}</a> ({{ category | last | size }})
-              </li>
+                <li>
+                  <a href="">{{ category | first }}<span>({{ category | last | size }})</span></a>
+                </li>
               {% endfor %}
             </ul>
           </div>

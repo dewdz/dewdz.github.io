@@ -16,10 +16,8 @@ function gestureStart() {
   }
 }
 (function(){
-  var int=setInterval(function(){
-    var d=new Date();
-    var t=d.toLocaleTimeString();
-    document.getElementById("welcom-date").innerHTML=t;
+  document.getElementById("welcom-date").innerHTML = new Date().toLocaleTimeString();
+  var int = setInterval(function(){
+      document.getElementById("welcom-date").innerHTML = new Date().toLocaleTimeString();
   },1000);
-  
 })();
